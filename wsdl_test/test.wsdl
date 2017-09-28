@@ -1,0 +1,43 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../ver20/util/onvif-wsdl-viewer.xsl"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:td1="http://www.hugh.org/ver10/test/wsdl" targetNamespace="http://www.hugh.org/ver10/test/wsdl">
+
+    <!-- <import namespace="uri" location="uri"/> -->
+    <!--<wsdl:documentation .... /> ?-->
+
+    <wsdl:types>
+        <!--<wsdl:documentation/>-->
+        <!--<xsd:schema/>-->
+    </wsdl:types>
+
+    <wsdl:message name="DeviceInformationRequest">
+        <wsdl:part name="parameters" element="tds:GetDeviceInfo"/> 
+    </wsdl:message>
+
+    <wsdl:message name="DeviceInformationResponse">
+        <wsdl:part name="parameters" element="tds:DeviceInformation"/> 
+    </wsdl:message>
+
+    <wsdl:portType name="Device">
+        <wsdl:operation name="GetDeviceInformation">
+            <wsdl:documentation>Get Device Information</wsdl:documentation>
+            <wsdl:input message="td1:DeviceInformationRequest"/>
+            <wsdl:output message="td1:DeviceInformationResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="DeviceBinding" type="td1:Device"> *
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetDeviceInformation">
+            <soap:operation soapAction="http://www.hugh.org/ver10/test/wsdl/GetDeviceInformation"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+</wsdl:definitions>
