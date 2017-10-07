@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchemaLettle"
+	targetNamespace="http://www.pukuimi.com/XMLSchemaLettle.xsd"
+	elementFormDefault="qualified"
+	xmlns="http://www.pukuimi.com/XMLSchemaLettle.xsd"
+	xmlns:mstns="http://www.pukuimi.com/XMLSchemaLettle.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="note">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="heading" type="xs:string" minOccurs="0" maxOccurs="1" default="headstring">
+				</xs:element>
+				<xs:element name="body" type="xs:string" minOccurs="0" maxOccurs="1" default="content"/>
+				<xs:element name="aletter" minOccurs="0" maxOccurs="1" default="a">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[a-zA-Z]"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="age" minOccurs="0" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:integer">
+							<xs:minInclusive value="1"/>
+							<xs:maxInclusive value="120"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="gender" minOccurs="0" maxOccurs="1" default="male">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:whiteSpace value="replace"/>
+							<xs:pattern value="male|female"/>
+							<xs:minLength value="4"/>
+							<xs:maxLength value="6">
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>w
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
