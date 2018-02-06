@@ -1,7 +1,7 @@
 [TOC]
 
 ---
-
+# H264+Nginx模块
 ## 软件安装
 
 nginx源码包:
@@ -37,3 +37,5 @@ http://h264.code-shop.com/download/nginx_mod_h264_streaming-2.2.7.tar.gz
         return NGX_DECLINED;
     }
     2.删除Makefile文件中的-Werror
+
+---
